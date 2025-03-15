@@ -156,19 +156,3 @@ function loginWithGoogle() {
   
   window.location.href = authUrl;
 }
-
-//Displaying user name and email
-
-async function fetchUserInfo() {
-  try {
-    const response = await fetch("http://localhost:8000/api/user");
-    const data = await response.json();
-    
-    document.getElementById("user_name").innerText = data.name;
-    document.getElementById("user_email").innerText = data.email;
-  } catch (error) {
-    console.error("Error fetching user info:", error);
-  }
-}
-
-window.onload = fetchUserInfo; // Run the function when the page loads
