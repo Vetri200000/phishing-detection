@@ -25,22 +25,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Icon Script -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      defer
-      async
-    ></script>
-    <script
-      nomodule
-      defer
-      async
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-
-    <!-- Main Scripts -->
-    <script src="./scripts/script.js" defer></script>
   </head>
   <body class="dark:bg-black">
     <div
@@ -86,30 +70,30 @@
               class="visited:no-underline text-black dark:text-white text-[2rem] px-4 py-1 rounded hover:text-[#ffffff] hover:bg-blue-500/40 dark:hover:bg-white/40 dark:hover:text-[#000] transition duration-300"
               >Docs</a
             >
-            <a class="visited:no-underline text-black dark:text-white text-[2rem] px-4 py-1 rounded hover:text-[#ffffff] hover:bg-blue-500/40 dark:hover:bg-white/40 dark:hover:text-[#000] transition duration-300">
-              <button id="login-btn">Login</button></a>
-            <a class="visited:no-underline text-black dark:text-white text-[2rem] px-4 py-1 rounded hover:text-[#ffffff] hover:bg-blue-500/40 dark:hover:bg-white/40 dark:hover:text-[#000] transition duration-300">
-              <div id="user-info" style="display: none;">
-                <h2>Name: <span id="user-name">No log</span></h2>
-                <p>Email: <span id="user-email">No log</span></p>
-            </div></a>
+            <a
+              class="visited:no-underline text-black dark:text-white text-[2rem] px-4 py-1 rounded hover:text-[#ffffff] hover:bg-blue-500/40 dark:hover:bg-white/40 dark:hover:text-[#000] transition duration-300"
+              id="login-btn"
+              >Login</a
+            >
+            <div id="user-info">
+              <p id="user-name">Welcome Guest!</p>
+            </div>
           </ul>
         </nav>
       </div>
 
       <!-- Mobile Navigation Button -->
-      
-          <button class="mode mobile:col-span-1 lscreen:col-span-1">
-            <ion-icon
-              name="sunny-outline"
-              class="mode-icon dark:text-white hidden"
-            ></ion-icon>
-            <ion-icon
-              name="moon-outline"
-              class="mode-icon dark:text-white"
-            ></ion-icon>
-          </button>
-      
+
+      <button class="mode mobile:col-span-1 lscreen:col-span-1">
+        <ion-icon
+          name="sunny-outline"
+          class="mode-icon dark:text-white hidden"
+        ></ion-icon>
+        <ion-icon
+          name="moon-outline"
+          class="mode-icon dark:text-white"
+        ></ion-icon>
+      </button>
     </header>
 
     <!-- HERO SECTION -->
@@ -350,5 +334,20 @@
       </p>
     </footer>
     <br /><br />
+
+    <!-- Main Scripts -->
+    <script src="./scripts/script.js"></script>
+
+    <!-- Icon Script -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      async
+    ></script>
+    <script
+      nomodule
+      async
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

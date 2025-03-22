@@ -106,7 +106,7 @@ const fetch_results = function (url) {
       result_obj.Message = data["Message"];
       result_obj.Results = data["Results"];
       console.log(result_obj);
-      result_text.innerText=result_obj.Message
+      result_text.innerText = result_obj.Message;
     });
 };
 
@@ -136,26 +136,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//callback function
-
-function loginWithGoogle() {
-  const clientId = "623565397438-56j4lk55qso3vcuosq10rpb4cosrv98n.apps.googleusercontent.com";
-  const redirectUri = "http://localhost:8000/auth/callback"; // Your backend URL
-  const scope = "email profile";
-  const authUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scope}`;
-  
-  window.location.href = authUrl;
-}
+//Login button
 
 document.addEventListener("DOMContentLoaded", function () {
   const loginButton = document.getElementById("login-btn");
 
   if (loginButton) {
-      loginButton.addEventListener("click", function () {
-          window.location.href = "http://localhost:8000/login";  // Redirect to login
-      });
+    loginButton.addEventListener("click", function () {
+      window.location.href = "http://localhost:8000/login"; // Redirect to login
+    });
   } else {
-      console.error("Login button not found!");
+    console.error("Login button not found!");
   }
 
   fetchUserInfo();
@@ -163,21 +154,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function fetchUserInfo() {
   try {
-      const response = await fetch("http://localhost:8000/api/user", { credentials: "include" }); // Include cookies for session
-      if (!response.ok) {
-          throw new Error("User not logged in");
-      }
-      const data = await response.json();
+    const response = await fetch("http://localhost:8000/api/user", {
+      credentials: "include",
+    }); // Include cookies for session
+    if (!response.ok) {
+      throw new Error("User not logged in");
+    }
+    const data = await response.json();
 
-      document.getElementById("login-btn").style.display = "none"; // Hide login button
-      document.getElementById("user-info").style.display = "block"; // Show user info
+    document.getElementById("login-btn").style.display = "none"; // Hide login button
+    document.getElementById("user-info").style.display = "block"; // Show user info
 
-      document.getElementById("user-name").textContent = data.name;
-      document.getElementById("user-email").textContent = data.email;
+    document.getElementById("user-name").textContent = data.name;
   } catch (error) {
-      console.error("Error fetching user info:", error);
-      document.getElementById("user-info").style.display = "none";
-      document.getElementById("login-btn").style.display = "block";
+    console.error("Error fetching user info:", error);
+    document.getElementById("user-info").style.display = "none";
+    document.getElementById("login-btn").style.display = "block";
   }
 }
 
+document.addEventListener("DOMContentLoaded", fetchUserInfo);

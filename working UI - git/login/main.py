@@ -15,12 +15,12 @@ app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="your_secret_key", session_cookie="session_id")
 
 # ✅ Google OAuth credentials
-CLIENT_ID = ""
-CLIENT_SECRET = ""
+CLIENT_ID = "your-client-id"
+CLIENT_SECRET = "your-secret-id"
 REDIRECT_URI = "http://localhost:8000/auth/callback"
 
 # ✅ Serve static files (Your UI directory)
-app.mount("/ui", StaticFiles(directory=r"C:\Users\vetri vel\Desktop\working UI - git"), name="ui")
+app.mount("/ui", StaticFiles(directory=r"D:\Git Repos\Project\phishing-detection\working UI - git"), name="ui")
 
 # ✅ Setup logging
 logging.basicConfig(level=logging.DEBUG)
