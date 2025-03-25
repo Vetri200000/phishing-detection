@@ -23,7 +23,7 @@ CLIENT_SECRET = ""
 REDIRECT_URI = ""
 
 # ✅ Serve static files (Your UI directory)
-app.mount("/ui", StaticFiles(directory=r"C:\Users\vetri vel\Desktop\updated report\phishing-detection\working UI - git"), name="ui")
+app.mount("/ui", StaticFiles(directory=r"Path/to/you/UI"), name="ui")
 
 # ✅ Setup logging
 logging.basicConfig(level=logging.DEBUG)
