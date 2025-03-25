@@ -168,7 +168,7 @@ async function fetchUserInfo() {
     document.getElementById("user-name").textContent = data.name;
   } catch (error) {
     console.error("Error fetching user info:", error);
-    document.getElementById("user-info").style.display = "none";
+    document.getElementById("user-info").style.display = "block";
     document.getElementById("login-btn").style.display = "block";
   }
 }
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
-    
+
     const url = document.getElementById("url").value;
 
     try {
@@ -205,25 +205,25 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 });
 
+document
+  .getElementById("report-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent page refresh
 
-document.getElementById("report-form").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent page refresh
+    let messageElement = document.getElementById("message");
+    messageElement.textContent = "Phishing website reported successfully!";
+    messageElement.style.color = "green";
 
-  let messageElement = document.getElementById("message");
-  messageElement.textContent = "Phishing website reported successfully!";
-  messageElement.style.color = "green";
+    // Show message and fade out after 3 seconds
+    setTimeout(() => {
+      messageElement.style.opacity = "1";
+      messageElement.style.transition = "opacity 1s";
+      messageElement.style.opacity = "0";
+    }, 2000); // Wait 2 sec, then fade in 1 sec
 
-  // Show message and fade out after 3 seconds
-  setTimeout(() => {
-    messageElement.style.opacity = "1";
-    messageElement.style.transition = "opacity 1s";
-    messageElement.style.opacity = "0";
-  }, 2000); // Wait 2 sec, then fade in 1 sec
-
-  // Reset message after fade-out completes
-  setTimeout(() => {
-    messageElement.textContent = "";
-    messageElement.style.opacity = "1"; // Reset opacity for next submit
-  }, 3000);
-});
-
+    // Reset message after fade-out completes
+    setTimeout(() => {
+      messageElement.textContent = "";
+      messageElement.style.opacity = "1"; // Reset opacity for next submit
+    }, 3000);
+  });
